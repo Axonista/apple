@@ -1,0 +1,962 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RemocoKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import AVKit
+import CommonCrypto
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+public let RemocoAnalytics: RemocoKit.RemocoAnalyticsV3
+@frozen public enum RemocoAnalyticsLogLevel : Swift.Int {
+  case error
+  case warning
+  case info
+  case debug
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RemocoAnalyticsV3 {
+  public func begin()
+  public func event(title: Swift.String, description: Swift.String?, logLevel: RemocoKit.RemocoAnalyticsLogLevel, info: [Swift.String : Any]?)
+  @objc deinit
+}
+extension UIKit.UIDevice {
+  @_Concurrency.MainActor(unsafe) public static let modelName: Swift.String
+}
+@frozen public enum HTTPMethod : Swift.String {
+  case connect
+  case delete
+  case get
+  case head
+  case options
+  case patch
+  case post
+  case put
+  case trace
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@frozen public enum RemocoError : Swift.Error {
+  case unauthorized(underlying: Swift.Error?)
+  case notFound(underlying: Swift.Error?)
+  case invalidResponse(underlying: Swift.Error?)
+  case invalidData(underlying: Swift.Error?)
+  case invalidJSON(underlying: Swift.Error?)
+  case other(underlying: Swift.Error?)
+  case unknown
+  public var underlying: Swift.Error? {
+    get
+  }
+}
+extension RemocoKit.RemocoError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension RemocoKit.RemocoError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class RemocoEnvironment {
+  public var enabled: Swift.Bool {
+    get
+    set
+  }
+  public var stagingEnabled: Swift.Bool {
+    get
+    set
+  }
+  public var apiKey: Swift.String? {
+    get
+    set
+  }
+  public var appIdentifier: Swift.String? {
+    get
+    set
+  }
+  public var accountCode: Swift.String? {
+    get
+    set
+  }
+  public var interactivePrivateInstance: Swift.String? {
+    get
+    set
+  }
+  public var endpoint: Swift.String {
+    get
+    set
+  }
+  public var logging: Swift.Bool {
+    get
+    set
+  }
+  public var cacheDisabled: Swift.Bool {
+    get
+    set
+  }
+  public var edifloSDKVersion: Swift.String {
+    get
+    set
+  }
+  @objc deinit
+}
+@frozen public struct Safe<Base> : Swift.Decodable where Base : Swift.Decodable {
+  public let value: Base?
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Swift.KeyedDecodingContainer {
+  public func decodeSafelyIfPresent<T>(_ key: Swift.KeyedDecodingContainer<K>.Key) -> T? where T : Swift.Decodable
+  public func decodeSafelyIfPresent<T>(_ type: T.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) -> T? where T : Swift.Decodable
+}
+@_inheritsConvenienceInitializers @objc public class RemocoLogger : ObjectiveC.NSObject {
+  @objc public static func log(string: Swift.String)
+  public static func log(error: Swift.Error?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol DiffAware {
+  func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+}
+final public class Heckel : RemocoKit.DiffAware {
+  public init()
+  final public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+  @objc deinit
+}
+final public class WagnerFischer : RemocoKit.DiffAware {
+  public init(reduceMove: Swift.Bool = false)
+  final public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+  @objc deinit
+}
+extension Swift.Array {
+  public func executeIfPresent(_ closure: ([Element]) -> Swift.Void)
+}
+@frozen public struct Insert<T> {
+  public let item: T
+  public let index: Swift.Int
+}
+@frozen public struct Delete<T> {
+  public let item: T
+  public let index: Swift.Int
+}
+@frozen public struct Replace<T> {
+  public let oldItem: T
+  public let newItem: T
+  public let index: Swift.Int
+}
+@frozen public struct Move<T> {
+  public let item: T
+  public let fromIndex: Swift.Int
+  public let toIndex: Swift.Int
+}
+@frozen public enum Change<T> {
+  case insert(RemocoKit.Insert<T>)
+  case delete(RemocoKit.Delete<T>)
+  case replace(RemocoKit.Replace<T>)
+  case move(RemocoKit.Move<T>)
+  public var insert: RemocoKit.Insert<T>? {
+    get
+  }
+  public var delete: RemocoKit.Delete<T>? {
+    get
+  }
+  public var replace: RemocoKit.Replace<T>? {
+    get
+  }
+  public var move: RemocoKit.Move<T>? {
+    get
+  }
+}
+public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>, algorithm: RemocoKit.DiffAware = Heckel()) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+@frozen public struct ChangeWithIndexPath {
+  public let inserts: [Foundation.IndexPath]
+  public let deletes: [Foundation.IndexPath]
+  public let replaces: [Foundation.IndexPath]
+  public let moves: [(from: Foundation.IndexPath, to: Foundation.IndexPath)]
+  public init(inserts: [Foundation.IndexPath], deletes: [Foundation.IndexPath], replaces: [Foundation.IndexPath], moves: [(from: Foundation.IndexPath, to: Foundation.IndexPath)])
+}
+public class IndexPathConverter {
+  public init()
+  public func convert<T>(changes: [RemocoKit.Change<T>], section: Swift.Int) -> RemocoKit.ChangeWithIndexPath
+  @objc deinit
+}
+extension UIKit.UICollectionView {
+  @_Concurrency.MainActor(unsafe) public func reload<T>(changes: [RemocoKit.Change<T>], section: Swift.Int = 0, updateData: () -> Swift.Void, completion: ((Swift.Bool) -> Swift.Void)? = nil) where T : Swift.Hashable
+}
+extension UIKit.UITableView {
+  @_Concurrency.MainActor(unsafe) public func reload<T>(changes: [RemocoKit.Change<T>], section: Swift.Int = 0, insertionAnimation: UIKit.UITableView.RowAnimation = .automatic, deletionAnimation: UIKit.UITableView.RowAnimation = .automatic, replacementAnimation: UIKit.UITableView.RowAnimation = .automatic, updateData: () -> Swift.Void, completion: ((Swift.Bool) -> Swift.Void)? = nil) where T : Swift.Hashable
+}
+extension RemocoKit.JSON {
+  public init(_ value: Any) throws
+}
+extension RemocoKit.JSON {
+  public init<T>(encodable: T) throws where T : Swift.Encodable
+}
+extension RemocoKit.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.Bool)
+  public typealias BooleanLiteralType = Swift.Bool
+}
+extension RemocoKit.JSON : Swift.ExpressibleByNilLiteral {
+  public init(nilLiteral: ())
+}
+extension RemocoKit.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: RemocoKit.JSON...)
+  public typealias ArrayLiteralElement = RemocoKit.JSON
+}
+extension RemocoKit.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, RemocoKit.JSON)...)
+  public typealias Key = Swift.String
+  public typealias Value = RemocoKit.JSON
+}
+extension RemocoKit.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.Double)
+  public typealias FloatLiteralType = Swift.Double
+}
+extension RemocoKit.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.Int)
+  public typealias IntegerLiteralType = Swift.Int
+}
+extension RemocoKit.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.String)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  public typealias StringLiteralType = Swift.String
+  public typealias UnicodeScalarLiteralType = Swift.String
+}
+@dynamicMemberLookup @frozen public enum JSON : Swift.Equatable {
+  case string(Swift.String)
+  case number(Swift.Double)
+  case object([Swift.String : RemocoKit.JSON])
+  case array([RemocoKit.JSON])
+  case bool(Swift.Bool)
+  case null
+  public static func == (a: RemocoKit.JSON, b: RemocoKit.JSON) -> Swift.Bool
+}
+extension RemocoKit.JSON : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension RemocoKit.JSON : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension RemocoKit.JSON : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension RemocoKit.JSON {
+  public func merging(with new: RemocoKit.JSON) -> RemocoKit.JSON
+}
+extension RemocoKit.JSON {
+  public var stringValue: Swift.String? {
+    get
+  }
+  public var doubleValue: Swift.Double? {
+    get
+  }
+  public var boolValue: Swift.Bool? {
+    get
+  }
+  public var objectValue: [Swift.String : RemocoKit.JSON]? {
+    get
+  }
+  public var arrayValue: [RemocoKit.JSON]? {
+    get
+  }
+  public var isNull: Swift.Bool {
+    get
+  }
+  public subscript(index: Swift.Int) -> RemocoKit.JSON? {
+    get
+  }
+  public subscript(key: Swift.String) -> RemocoKit.JSON? {
+    get
+  }
+  public subscript(dynamicMember member: Swift.String) -> RemocoKit.JSON? {
+    get
+  }
+  public subscript(keyPath keyPath: Swift.String) -> RemocoKit.JSON? {
+    get
+  }
+  public func queryKeyPath<T>(_ path: T) -> RemocoKit.JSON? where T : Swift.Collection, T.Element == Swift.String
+}
+@frozen public struct LibraryApp : Swift.Codable {
+  public var id: Swift.String
+  public var type: Swift.String
+  public var name: Swift.String?
+  public var config: RemocoKit.LibraryConfig?
+  public init(id: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct LibraryCategory : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public var type: Swift.String?
+  public var code: Swift.String?
+  public var title: Swift.String?
+  public var resources: [Swift.String : RemocoKit.Resource]?
+  public var items: [RemocoKit.LibraryItem]?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryCategory, b: RemocoKit.LibraryCategory) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryCollection : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var type: Swift.String
+  public var title: Swift.String?
+  public var description: Swift.String?
+  public var thumbnail: Foundation.URL?
+  public var items: [RemocoKit.LibraryItem]?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryCollection, b: RemocoKit.LibraryCollection) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryConfig : Swift.Codable, Swift.Equatable {
+  public let settings: RemocoKit.Settings
+  public let screens: [RemocoKit.Screen]
+  public let custom: RemocoKit.JSON?
+  public let json: RemocoKit.JSON?
+  public let data: Foundation.Data?
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (a: RemocoKit.LibraryConfig, b: RemocoKit.LibraryConfig) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct Settings : Swift.Codable, Swift.Equatable {
+  public let accentColor: Swift.String, theme: Swift.String
+  public static func == (a: RemocoKit.Settings, b: RemocoKit.Settings) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct Screen : Swift.Codable, Swift.Equatable {
+  public let content: [RemocoKit.Content]?
+  public let code: Swift.String, layout: Swift.String, title: Swift.String
+  public static func == (a: RemocoKit.Screen, b: RemocoKit.Screen) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct Content : Swift.Codable, Swift.Equatable {
+  public let type: Swift.String, value: Swift.String
+  public let title: Swift.String?
+  public static func == (a: RemocoKit.Content, b: RemocoKit.Content) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct LibraryError : Swift.CustomStringConvertible, Swift.Error, Foundation.LocalizedError {
+  public var type: Swift.String?
+  public var code: Swift.String?
+  public var message: Swift.String?
+  public var description: Swift.String {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension RemocoKit.LibraryError : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct LibraryEvent : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public let type: Swift.String
+  public var title: Swift.String?
+  public var subtitle: Swift.String?
+  public var synopsis: Swift.String?
+  public var marketingSynopsis: Swift.String?
+  public var marketingTitle: Swift.String?
+  public var technical: Swift.String?
+  public var eventCode: Swift.String?
+  public var year: Swift.String?
+  public var source: Foundation.URL?
+  public var sourceID: Swift.String?
+  public var sources: [RemocoKit.Source]?
+  public var canonicalURL: Swift.String?
+  public var contentType: Swift.String?
+  public var playPosition: Swift.Double?
+  public var episodeNumber: Swift.Int?
+  public var additionalInfo: Swift.String?
+  public var duration: Swift.Double?
+  public var time: RemocoKit.Time?
+  public var series: RemocoKit.LibrarySeries?
+  public var tags: [Swift.String]?
+  public var still: Foundation.URL?
+  public var company: Swift.String?
+  public var countries: [Swift.String]?
+  public var information: Swift.String?
+  public var language: Swift.String?
+  public var location: Swift.String?
+  public var productionYear: Swift.String?
+  public var resources: [Swift.String : RemocoKit.Resource]?
+  public var events: [RemocoKit.LibraryEvent]?
+  public var slots: [RemocoKit.LibrarySlot]?
+  public var categories: [RemocoKit.LibraryCategory]?
+  public var profiles: [RemocoKit.LibraryProfile]?
+  public var parentRating: Swift.String?
+  public var triggers: [RemocoKit.LibraryTrigger]?
+  public var targets: [RemocoKit.Target]?
+  public var media: [RemocoKit.LibraryMedia]?
+  public init(id: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryEvent, b: RemocoKit.LibraryEvent) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct Resource : Swift.Codable, Swift.Hashable {
+  public let type: Swift.String
+  public let value: Foundation.URL?
+  public init(type: Swift.String, value: Foundation.URL)
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.Resource, b: RemocoKit.Resource) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct Source : Swift.Codable, Swift.Hashable {
+  public let drm: Swift.String
+  public let encode: Swift.String
+  public let url: Foundation.URL?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.Source, b: RemocoKit.Source) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct Time : Swift.Codable, Swift.Hashable {
+  public init(start: Foundation.Date, end: Foundation.Date)
+  public let duration: Swift.Double
+  public let start: Foundation.Date
+  public let end: Foundation.Date
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.Time, b: RemocoKit.Time) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct LibraryExternal : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var type: Swift.String
+  public var description: Swift.String?
+  public var objectData: RemocoKit.JSON?
+  public var objectType: Swift.String?
+  public var dataSubtype: Swift.String?
+  public var thumbnail: Foundation.URL?
+  public var title: Swift.String?
+  public var dataType: Swift.String?
+  public var sourceReference: Foundation.URL?
+  public init(id: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryExternal, b: RemocoKit.LibraryExternal) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public enum LibraryItem {
+  case event(RemocoKit.LibraryEvent)
+  case series(RemocoKit.LibrarySeries)
+  case profile(RemocoKit.LibraryProfile)
+  case category(RemocoKit.LibraryCategory)
+  case collection(RemocoKit.LibraryCollection)
+  case external(RemocoKit.LibraryExternal)
+  case unknown
+}
+extension RemocoKit.LibraryItem : Swift.Codable, Swift.Hashable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public var id: Swift.String {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryItem, b: RemocoKit.LibraryItem) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryMedia : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public let type: Swift.String
+  public var title: Swift.String?
+  public var dataType: Swift.String?
+  public var subtype: Swift.String?
+  public var deliveryType: Swift.String?
+  public var code: Swift.String?
+  public var duration: Swift.Double?
+  public var primary: Swift.Bool?
+  public var sources: [RemocoKit.Source]?
+  public var thumbnail: Foundation.URL?
+  public var source: Foundation.URL?
+  public var targets: [RemocoKit.Target]?
+  public var triggers: [RemocoKit.LibraryTrigger]?
+  public init(id: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryMedia, b: RemocoKit.LibraryMedia) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryProfile : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public var type: Swift.String?
+  public var name: Swift.String?
+  public var role: Swift.String?
+  public var subtype: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryProfile, b: RemocoKit.LibraryProfile) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibrarySeries : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var type: Swift.String
+  public var title: Swift.String?
+  public var seriesCode: Swift.String?
+  public var slug: Swift.String?
+  public var synopsis: Swift.String?
+  public var marketingSynopsis: Swift.String?
+  public var marketingTitle: Swift.String?
+  public var resources: [Swift.String : RemocoKit.Resource]?
+  public var events: [RemocoKit.LibraryEvent]?
+  public var additionalInfo: Swift.String?
+  public var company: Swift.String?
+  public var productionYear: Swift.String?
+  public var location: Swift.String?
+  public var countries: [Swift.String]?
+  public var language: Swift.String?
+  public var information: Swift.String?
+  public var parentRating: Swift.String?
+  public var categories: [RemocoKit.LibraryCategory]?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibrarySeries, b: RemocoKit.LibrarySeries) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibrarySlot : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibrarySlot, b: RemocoKit.LibrarySlot) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryTrigger : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public let type: Swift.String
+  public var overrideDuration: Swift.Double?
+  public var index: Swift.Int?
+  public var target: Swift.String?
+  public var time: Swift.Double = 0
+  public var messageType: Swift.String?
+  public var messageID: Swift.String?
+  public var messageSelf: Swift.String?
+  public var action: Swift.String?
+  public var duration: Swift.Double?
+  public var objectType: Swift.String?
+  public var title: Swift.String?
+  public var dataType: Swift.String?
+  public var objectData: RemocoKit.JSON?
+  public var description: Swift.String?
+  public var thumbnail: Foundation.URL?
+  public init(id: Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryTrigger, b: RemocoKit.LibraryTrigger) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension RemocoKit.LibraryTrigger {
+  public func getDuration() -> Swift.Double
+}
+@frozen public struct LibraryUpdate : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String, type: Swift.String
+  public let action: Swift.String?, code: Swift.String?, dataSource: Swift.String?
+  public let updated: Foundation.Date?
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryUpdate, b: RemocoKit.LibraryUpdate) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct LibraryUser : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public let type: Swift.String
+  public var status: Swift.String?
+  public var token: Swift.String?
+  public var username: Swift.String?
+  public var isVerified: Swift.Bool?
+  public var birthday: Foundation.Date?
+  public var email: Swift.String?
+  public var name: Swift.String?
+  public var provider: Swift.String?
+  public var plan: Swift.String?
+  public var reference: Swift.String?
+  public var isCancelled: Swift.Bool?
+  public var isExpired: Swift.Bool?
+  public var subscriptionDate: Foundation.Date?
+  public var nextPaymentDate: Foundation.Date?
+  public var expiryDate: Foundation.Date?
+  public var cancellationDate: Foundation.Date?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryUser, b: RemocoKit.LibraryUser) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct Location : Swift.Codable, Swift.Hashable {
+  public var ip: Swift.String?, countryCode: Swift.String?, countryName: Swift.String?, timeZone: Swift.String?
+  public var eu: Swift.Bool?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.Location, b: RemocoKit.Location) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct Target : Swift.Codable, Swift.Hashable {
+  public var code: Swift.String?, name: Swift.String?, subtype: Swift.String?, type: Swift.String?, positionHorizontal: Swift.String?, positionVertical: Swift.String?
+  public var offsetX: Swift.Double?, offsetY: Swift.Double?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.Target, b: RemocoKit.Target) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct LibraryEventV3 : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String
+  public var triggers: [RemocoKit.LibraryTriggerV3]?
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (lhs: RemocoKit.LibraryEventV3, rhs: RemocoKit.LibraryEventV3) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct LibraryTriggerV3 : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public let target: Swift.String?
+  public let time: Swift.Double?
+  public let action: Swift.String?
+  public var available: Swift.Bool?
+  public var title: Swift.String?
+  public var type: Swift.String?
+  public var originalFiles: [Swift.String]?
+  public var productNumber: Swift.String?
+  public var thumbnailImage: Swift.String?
+  public var defaultImageURLEXT: Swift.String?, shortDesc: Swift.String?
+  public var baseImageURL: Swift.String?
+  public var isGroupProduct: Swift.Bool = false
+  public var qvcMaxPrice: Swift.String?, minPrice: Swift.String?, qvcMinPrice: Swift.String?, maxPrice: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public static func == (lhs: RemocoKit.LibraryTriggerV3, rhs: RemocoKit.LibraryTriggerV3) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@frozen public struct ListCategories : Swift.Codable {
+  public var items: [RemocoKit.LibraryCategory]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListCollections : Swift.Codable {
+  public var items: [RemocoKit.LibraryCollection]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListEvents : Swift.Codable {
+  public var items: [RemocoKit.LibraryEvent]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListExternals : Swift.Codable {
+  public var items: [RemocoKit.LibraryExternal]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListProfiles : Swift.Codable {
+  public var items: [RemocoKit.LibraryProfile]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListSearch : Swift.Codable {
+  public var items: [RemocoKit.LibraryItem]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListSeries : Swift.Codable {
+  public var items: [RemocoKit.LibrarySeries]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListEventsV3 : Swift.Decodable {
+  public var items: [RemocoKit.LibraryEventV3]?
+  public init(from decoder: Swift.Decoder) throws
+}
+@frozen public struct UserCollection : Swift.Encodable {
+  internal let id: Swift.String
+  internal let collection: Swift.String
+  internal let playPosition: Swift.Double?
+  public init(id: Swift.String, collection: Swift.String, playPosition: Swift.Double? = nil)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct UserProfile : Swift.Encodable {
+  internal var installation: [Swift.String : Swift.String]?
+  internal var username: Swift.String?
+  internal var password: Swift.String?
+  public init(identifier: Swift.String)
+  public init(username: Swift.String, password: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Foundation.NSNotification.Name {
+  public static let RemocoNotifyDidReceiveUpdate: Foundation.Notification.Name
+}
+public class RemocoNotify {
+  public init(accountID: Swift.String)
+  @objc deinit
+}
+public let Remoco: RemocoKit.RemocoHttp
+@_hasMissingDesignatedInitializers public class RemocoHttp {
+  final public let environment: RemocoKit.RemocoEnvironment
+  public var interceptor: RemocoKit.RequestInterceptor?
+  public func getApp(interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getApp(identifier: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getApp(identifier: Swift.String, configCode: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  public func register(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryUser, RemocoKit.RemocoError>) -> Swift.Void)
+  public func login(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryUser, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCategories(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCategories, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCategories(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCategories, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCategory(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCategory, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCategoryEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCategorySeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSeries, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCollections(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCollections(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getCollection(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getEvents(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getEvent(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryEvent, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getExternals(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListExternals, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getExternals(objectType: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListExternals, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getExternal(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryExternal, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getPlan(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getPlan(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getPlanNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getProfiles(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListProfiles, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getProfile(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryProfile, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getProfileEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getSchedule(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getSchedule(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getScheduleNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func search(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSearch, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getSeries(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSeries, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getSeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibrarySeries, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getSeriesEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getUserCollections(parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getUserCollection(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  public func updateUserCollectionEntry(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, body: RemocoKit.UserCollection, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  public func deleteUserCollectionEntry(identifier: Swift.String, entryId: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getLocation(interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.Location, RemocoKit.RemocoError>) -> Swift.Void)
+  public func getLocation(ip: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.Location, RemocoKit.RemocoError>) -> Swift.Void)
+  public func interactiveSession(channelCode: Swift.String, previousTriggers: Swift.Int) -> RemocoKit.Interactive
+  public func notify(accountID: Swift.String) -> RemocoKit.RemocoNotify
+  @available(*, deprecated, message: "Call EdifloSession directly")
+  public func session(asset: RemocoKit.LibraryEvent, player: AVFoundation.AVPlayer) -> RemocoKit.EdifloSession
+  @available(*, deprecated, renamed: "session(asset:player:)", message: "Use EdifloSession instead")
+  public func session(event: RemocoKit.LibraryEvent, player: AVFoundation.AVPlayer) -> RemocoKit.RemocoSessionVOD
+  @available(*, deprecated, message: "Use EdifloSessionLive instead")
+  public func session(event: RemocoKit.LibraryEvent, historyLimit: Swift.Int) -> RemocoKit.RemocoSessionLive
+  @objc deinit
+}
+public class RemocoParameters {
+  public init()
+  public func expand(_ value: Swift.Int) -> RemocoKit.RemocoParameters
+  public func limit(_ value: Swift.String) -> RemocoKit.RemocoParameters
+  public func offset(_ value: Swift.Int) -> RemocoKit.RemocoParameters
+  public func sort(keys: [Swift.String], ascending: Swift.Bool) -> RemocoKit.RemocoParameters
+  public func parts(_ values: [Swift.String]) -> RemocoKit.RemocoParameters
+  public func filter(_ values: [Swift.String : Swift.String]) -> RemocoKit.RemocoParameters
+  public func search(_ value: Swift.String) -> RemocoKit.RemocoParameters
+  public func collections(_ value: Swift.String) -> RemocoKit.RemocoParameters
+  public func media(_ value: Swift.String) -> RemocoKit.RemocoParameters
+  public func build() -> [Foundation.URLQueryItem]
+  @objc deinit
+}
+public typealias RemocoResult<T> = Swift.Result<T, Swift.Error>
+public protocol RequestAdapter {
+  func adapt(_ urlRequest: Foundation.URLRequest, completion: @escaping (RemocoKit.RemocoResult<Foundation.URLRequest>) -> Swift.Void)
+}
+public protocol RequestRetrier {
+  func retry(_ request: Foundation.URLRequest, response: Foundation.HTTPURLResponse?, dueTo error: RemocoKit.RemocoError?, completion: @escaping (RemocoKit.RetryResult) -> Swift.Void)
+}
+public protocol RequestInterceptor : RemocoKit.RequestAdapter, RemocoKit.RequestRetrier {
+}
+extension RemocoKit.RequestAdapter {
+  public func adapt(_ urlRequest: Foundation.URLRequest, completion: @escaping (RemocoKit.RemocoResult<Foundation.URLRequest>) -> Swift.Void)
+}
+extension RemocoKit.RequestRetrier {
+  public func retry(_ request: Foundation.URLRequest, response: Foundation.HTTPURLResponse?, dueTo error: RemocoKit.RemocoError?, completion: @escaping (RemocoKit.RetryResult) -> Swift.Void)
+}
+@frozen public enum RetryResult {
+  case retry
+  case retryWithDelay(Foundation.TimeInterval)
+  case doNotRetry
+  case doNotRetryWithError(Swift.Error)
+}
+extension RemocoKit.RetryResult {
+  public var retryRequired: Swift.Bool {
+    get
+  }
+  public var delay: Foundation.TimeInterval? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+}
+open class Interceptor : RemocoKit.RequestInterceptor {
+  final public let interceptors: [RemocoKit.RequestInterceptor]
+  public init(interceptors: [RemocoKit.RequestInterceptor])
+  public func adapt(_ urlRequest: Foundation.URLRequest, completion: @escaping (RemocoKit.RemocoResult<Foundation.URLRequest>) -> Swift.Void)
+  public func retry(_ request: Foundation.URLRequest, response: Foundation.HTTPURLResponse?, dueTo error: RemocoKit.RemocoError?, completion: @escaping (RemocoKit.RetryResult) -> Swift.Void)
+  @objc deinit
+}
+open class RetryPolicy : RemocoKit.RequestInterceptor {
+  public static let defaultRetryLimit: Swift.UInt
+  public static let defaultExponentialBackoffBase: Swift.UInt
+  public static let defaultExponentialBackoffScale: Swift.Double
+  public static let defaultRetryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod>
+  public static let defaultRetryableHTTPStatusCodes: Swift.Set<Swift.Int>
+  public static let defaultRetryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
+  final public let retryLimit: Swift.UInt
+  final public let exponentialBackoffBase: Swift.UInt
+  final public let exponentialBackoffScale: Swift.Double
+  final public let retryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod>
+  final public let retryableHTTPStatusCodes: Swift.Set<Swift.Int>
+  final public let retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
+  public init(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods, retryableHTTPStatusCodes: Swift.Set<Swift.Int> = RetryPolicy.defaultRetryableHTTPStatusCodes, retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code> = RetryPolicy.defaultRetryableURLErrorCodes)
+  open func retry(_ request: Foundation.URLRequest, response: Foundation.HTTPURLResponse?, dueTo error: RemocoKit.RemocoError?, completion: @escaping (RemocoKit.RetryResult) -> Swift.Void)
+  open func adapt(_ urlRequest: Foundation.URLRequest, completion: @escaping (RemocoKit.RemocoResult<Foundation.URLRequest>) -> Swift.Void)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class RemocoSession : ObjectiveC.NSObject {
+  final public let event: RemocoKit.LibraryEvent
+  public func subscribe(_ completion: @escaping (RemocoKit.LibraryTrigger) -> Swift.Void)
+  public func subscribe(target: Swift.String, completion: @escaping (RemocoKit.LibraryTrigger) -> Swift.Void)
+  public func subscribeToTimeline(_ completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  public func subscribeToTimeline(target: Swift.String, completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  @objc deinit
+}
+public typealias RemocoSessionMessage = [Swift.AnyHashable : Any]
+public class RemocoSessionLive {
+  @available(*, deprecated, message: "Use EdifloSessionLive instead")
+  public init(event: RemocoKit.LibraryEvent)
+  public func subscribe(_ completion: @escaping (RemocoKit.RemocoSessionMessage) -> Swift.Void)
+  public func history(limit: Swift.Int? = nil, _ completion: @escaping ([RemocoKit.RemocoSessionMessage]) -> Swift.Void)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class RemocoSessionVOD : RemocoKit.RemocoSession {
+  @available(*, deprecated, renamed: "session(asset:player:)", message: "Use EdifloSession for VOD Interactivity")
+  public init(event: RemocoKit.LibraryEvent, player: AVFoundation.AVPlayer)
+  @objc deinit
+}
+public class EdifloSession {
+  public var asset: RemocoKit.LibraryEvent {
+    get
+    set
+  }
+  public var framesPerSecond: Swift.Int32
+  public init(asset: RemocoKit.LibraryEvent, player: AVFoundation.AVPlayer)
+  public func subscribe(_ completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  public func subscribe(target: Swift.String, completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  public func subscribeToTimeline(_ completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  public func subscribeToTimeline(target: Swift.String, completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  @objc deinit
+}
+public class EdifloSessionLive {
+  public var asset: RemocoKit.LibraryEvent {
+    get
+  }
+  public init(asset: RemocoKit.LibraryEvent)
+  public func subscribe(_ completion: @escaping (RemocoKit.LibraryTrigger) -> Swift.Void)
+  public func history(limit: Swift.Int? = nil, _ completion: @escaping ([RemocoKit.LibraryTrigger]) -> Swift.Void)
+  @objc deinit
+}
+public class Interactive {
+  public init(channelCode: Swift.String, previousTriggers: Swift.Int)
+  public func itemsOnAir(_ completion: @escaping ([RemocoKit.LibraryTriggerV3]?, RemocoKit.RemocoError?) -> Swift.Void)
+  @objc deinit
+}
+extension RemocoKit.RemocoAnalyticsLogLevel : Swift.Equatable {}
+extension RemocoKit.RemocoAnalyticsLogLevel : Swift.Hashable {}
+extension RemocoKit.RemocoAnalyticsLogLevel : Swift.RawRepresentable {}
+extension RemocoKit.RemocoAnalyticsLogLevel : Swift.Sendable {}
+extension RemocoKit.HTTPMethod : Swift.Equatable {}
+extension RemocoKit.HTTPMethod : Swift.Hashable {}
+extension RemocoKit.HTTPMethod : Swift.RawRepresentable {}
+extension RemocoKit.HTTPMethod : Swift.Sendable {}
+extension RemocoKit.ChangeWithIndexPath : Swift.Sendable {}
+extension RemocoKit.Settings : Swift.Sendable {}
+extension RemocoKit.Screen : Swift.Sendable {}
+extension RemocoKit.Content : Swift.Sendable {}
+extension RemocoKit.Resource : Swift.Sendable {}
+extension RemocoKit.Source : Swift.Sendable {}
+extension RemocoKit.Time : Swift.Sendable {}
+extension RemocoKit.LibraryProfile : Swift.Sendable {}
+extension RemocoKit.LibrarySlot : Swift.Sendable {}
+extension RemocoKit.LibraryUpdate : Swift.Sendable {}
+extension RemocoKit.LibraryUser : Swift.Sendable {}
+extension RemocoKit.Location : Swift.Sendable {}
+extension RemocoKit.Target : Swift.Sendable {}
+extension RemocoKit.LibraryEventV3 : Swift.Sendable {}
+extension RemocoKit.LibraryTriggerV3 : Swift.Sendable {}
+extension RemocoKit.ListProfiles : Swift.Sendable {}
+extension RemocoKit.ListEventsV3 : Swift.Sendable {}
+extension RemocoKit.UserCollection : Swift.Sendable {}
+extension RemocoKit.UserProfile : Swift.Sendable {}
+extension RemocoKit.RetryResult : Swift.Sendable {}
