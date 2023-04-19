@@ -1,11 +1,11 @@
-# Firebase Apple Open Source Development
+# Remoco SDK Open Source Development
 
-This repository contains all Apple platform Firebase SDK source except FirebaseAnalytics.
+This repository contains ...
 
 
 ## Installation
 
-Installation steps here
+Installation steps here ...
 
 
 ## Development
