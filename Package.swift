@@ -16,7 +16,7 @@ let BrightcovePlayerSDK = Package(
     targets: [
         .binaryTarget(
                 name: "RemocoSDK",
-                path: "RemocoSDK.xcframework"
+                path: "RemocoKit.xcframework"
             )
     ]
 )
