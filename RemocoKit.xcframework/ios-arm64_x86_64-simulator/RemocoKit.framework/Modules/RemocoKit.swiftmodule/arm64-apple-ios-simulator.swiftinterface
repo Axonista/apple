@@ -84,6 +84,10 @@ extension RemocoKit.RemocoError : Foundation.LocalizedError {
     get
     set
   }
+  public var apiKeyInteractive: Swift.String? {
+    get
+    set
+  }
   public var appIdentifier: Swift.String? {
     get
     set
@@ -129,16 +133,16 @@ extension Swift.KeyedDecodingContainer {
   @objc deinit
 }
 public protocol DiffAware {
-  func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+  func diff<T>(old: [T], new: [T]) -> [RemocoKit.Change<T>] where T : Swift.Hashable
 }
 final public class Heckel : RemocoKit.DiffAware {
   public init()
-  final public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+  final public func diff<T>(old: [T], new: [T]) -> [RemocoKit.Change<T>] where T : Swift.Hashable
   @objc deinit
 }
 final public class WagnerFischer : RemocoKit.DiffAware {
   public init(reduceMove: Swift.Bool = false)
-  final public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+  final public func diff<T>(old: [T], new: [T]) -> [RemocoKit.Change<T>] where T : Swift.Hashable
   @objc deinit
 }
 extension Swift.Array {
@@ -180,7 +184,7 @@ extension Swift.Array {
     get
   }
 }
-public func diff<T>(old: Swift.Array<T>, new: Swift.Array<T>, algorithm: RemocoKit.DiffAware = Heckel()) -> [RemocoKit.Change<T>] where T : Swift.Hashable
+public func diff<T>(old: [T], new: [T], algorithm: RemocoKit.DiffAware = Heckel()) -> [RemocoKit.Change<T>] where T : Swift.Hashable
 @frozen public struct ChangeWithIndexPath {
   public let inserts: [Foundation.IndexPath]
   public let deletes: [Foundation.IndexPath]
@@ -756,7 +760,7 @@ extension RemocoKit.LibraryTrigger {
   public func encode(to encoder: Swift.Encoder) throws
 }
 extension Foundation.NSNotification.Name {
-  public static let RemocoNotifyDidReceiveUpdate: Foundation.Notification.Name
+  public static let remocoNotifyDidReceiveUpdate: Foundation.Notification.Name
 }
 public class RemocoNotify {
   public init(accountID: Swift.String)
@@ -767,42 +771,194 @@ public let Remoco: RemocoKit.RemocoHttp
   final public let environment: RemocoKit.RemocoEnvironment
   public var interceptor: RemocoKit.RequestInterceptor?
   public func getApp(interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getApp(interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryApp
+  #endif
   public func getApp(identifier: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getApp(identifier: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryApp
+  #endif
   public func getApp(identifier: Swift.String, configCode: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryApp, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getApp(identifier: Swift.String, configCode: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryApp
+  #endif
   public func register(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryUser, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func register(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryUser
+  #endif
   public func login(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryUser, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func login(user: RemocoKit.UserProfile, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryUser
+  #endif
   public func getCategories(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCategories, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCategories(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListCategories
+  #endif
   public func getCategories(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCategories, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCategories(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListCategories
+  #endif
   public func getCategory(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCategory, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCategory(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryCategory
+  #endif
   public func getCategoryEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCategoryEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getCategorySeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSeries, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCategorySeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListSeries
+  #endif
   public func getCollections(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCollections(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListCollections
+  #endif
   public func getCollections(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCollections(type: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListCollections
+  #endif
   public func getCollection(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getCollections(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryCollection
+  #endif
   public func getEvents(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getEvents(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getEvent(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryEvent, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getEvent(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryEvent
+  #endif
   public func getExternals(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListExternals, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getExternals(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListExternals
+  #endif
   public func getExternals(objectType: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListExternals, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getExternals(objectType: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListExternals
+  #endif
   public func getExternal(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryExternal, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getExternal(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryExternal
+  #endif
   public func getPlan(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getPlan(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getPlan(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getPlan(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getPlanNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getPlanNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getPlanNowV3(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEventsV3
+  #endif
   public func getProfiles(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListProfiles, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getProfiles(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListProfiles
+  #endif
   public func getProfile(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryProfile, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getProfile(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryProfile
+  #endif
   public func getProfileEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getProfileEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getSchedule(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getSchedule(start: Foundation.Date, end: Foundation.Date, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getSchedule(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getSchedule(date: Foundation.Date, eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getScheduleNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getScheduleNow(eventsBefore: Swift.Int, eventsAfter: Swift.Int, channelCode: Swift.String? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func search(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSearch, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func search(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListSearch
+  #endif
   public func getSeries(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListSeries, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getSeries(parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListSeries
+  #endif
   public func getSeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibrarySeries, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getSeries(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibrarySeries
+  #endif
   public func getSeriesEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListEvents, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getSeriesEvents(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListEvents
+  #endif
   public func getUserCollections(parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListCollections, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getUserCollections(parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListCollections
+  #endif
   public func getUserCollection(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getUserCollection(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryCollection
+  #endif
   public func updateUserCollectionEntry(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, body: RemocoKit.UserCollection, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func updateUserCollectionEntry(identifier: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, body: RemocoKit.UserCollection, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryCollection
+  #endif
   public func deleteUserCollectionEntry(identifier: Swift.String, entryId: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryCollection, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func deleteUserCollectionEntry(identifier: Swift.String, entryId: Swift.String, parameters: [Foundation.URLQueryItem]? = nil, token: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryCollection
+  #endif
   public func getLocation(interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.Location, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getLocation(interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.Location
+  #endif
   public func getLocation(ip: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.Location, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getLocation(ip: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.Location
+  #endif
   public func interactiveSession(channelCode: Swift.String, previousTriggers: Swift.Int) -> RemocoKit.Interactive
   public func notify(accountID: Swift.String) -> RemocoKit.RemocoNotify
   @available(*, deprecated, message: "Call EdifloSession directly")
@@ -879,7 +1035,8 @@ open class RetryPolicy : RemocoKit.RequestInterceptor {
   final public let retryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod>
   final public let retryableHTTPStatusCodes: Swift.Set<Swift.Int>
   final public let retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code>
-  public init(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods, retryableHTTPStatusCodes: Swift.Set<Swift.Int> = RetryPolicy.defaultRetryableHTTPStatusCodes, retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code> = RetryPolicy.defaultRetryableURLErrorCodes)
+  public init(retryLimit: Swift.UInt = RetryPolicy.defaultRetryLimit, exponentialBackoffBase: Swift.UInt = RetryPolicy.defaultExponentialBackoffBase, exponentialBackoffScale: Swift.Double = RetryPolicy.defaultExponentialBackoffScale, retryableHTTPMethods: Swift.Set<RemocoKit.HTTPMethod> = RetryPolicy.defaultRetryableHTTPMethods, retryableHTTPStatusCodes: Swift.Set<Swift.Int> = RetryPolicy.defaultRetryableHTTPStatusCodes, retryableURLErrorCodes: Swift.Set<Foundation.URLError.Code> = RetryPolicy
+			.defaultRetryableURLErrorCodes)
   open func retry(_ request: Foundation.URLRequest, response: Foundation.HTTPURLResponse?, dueTo error: RemocoKit.RemocoError?, completion: @escaping (RemocoKit.RetryResult) -> Swift.Void)
   open func adapt(_ urlRequest: Foundation.URLRequest, completion: @escaping (RemocoKit.RemocoResult<Foundation.URLRequest>) -> Swift.Void)
   @objc deinit
