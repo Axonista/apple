@@ -3,7 +3,7 @@
 // https://developer.apple.com/documentation/xcode/creating_a_standalone_swift_package_with_xcode?language=objc
 import PackageDescription
 
-let BrightcovePlayerSDK = Package(
+let RemocoSDK = Package(
     name: "Remoco SDK",
     platforms: [
         .iOS(.v12), .tvOS(.v12)
