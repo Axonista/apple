@@ -1,30 +1,69 @@
-# Remoco SDK Open Source Development
+# Remoco SDK 
 
 This repository contains ...
 
+## Requirements 
+
+XCode 15.0 or higher
+
+## Supported Platforms
+
+Axonista provides active support for the latest iOS SDK on the latest public release of the following versions:
+
+iOS 13.x and higher
+tvOS 13.x and higher
 
 ## Installation
 
-Installation steps here ...
+### Swift Package Manager
 
+To add the RemocoKit SDK to your project with Swift Package Manager:
 
-## Development
+1. Select the "Package Dependencies" tab for your Project.
+2. Click the "+" button.
+3. In the "Search or Enter Package URL" field enter https://github.com/axonista/apple.git
+4. When the UI updates click the "Add Package" button.
+5. After Xcode processess the repo you'll be prompted to "Choose Package Products" ensure that your app target is selected and click the "Add Package" button.
 
-To develop Remoco software in this repository, ensure that you have at least
-the following software:
+## Quick Start
 
-  * Xcode 13.3.1 (or later)
+How to retrieve a collection from the Ediflo CMS using RemocoKit: 
 
-CocoaPods is still the canonical way to develop, but much of the repo now supports
-development with Swift Package Manager.
+```
+  Remoco.environment.apiKey = "apiKey_here"
+  Remoco.environment.appIdentifier = "appIdentifier_here"
 
-### CocoaPods
+  let parameters = RemocoParameters().expand(2).build()
+    Remoco.getCollection(identifier: "my_collection_name", parameters: parameters) { result in
+      switch result {
+      case .success(let collection):
+          // do something with collection
+          print(collection)
+      case .failure(let error):
+          // handle the error here
+          print(error)
+      }
+  }
 
-Install
-  * CocoaPods 1.10.0 (or later)
-  * [CocoaPods generate](https://github.com/square/cocoapods-generate)
+```
 
+or 
 
-## License
+```
+  Remoco.environment.apiKey = "apiKey_here"
+  Remoco.environment.appIdentifier = "appIdentifier_here"
 
-The contents of this repository are licensed under the
+  Task {
+      do {
+        let collection = try await Remoco.getCollections(identifier: "my_collection_name", parameters: parameters)
+        print(collection)
+      } catch {
+        print(error)
+      }
+  }
+```
+
+## Support
+
+If you have questions, need help or want to provide feedback, please use the Support Portal or contact your Account Manager. 
+
