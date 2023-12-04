@@ -1,10 +1,8 @@
 # Remoco SDK 
 
-This repository contains ...
-
 ## Requirements 
 
-XCode 15.0 or higher
+Xcode 15.0 or higher
 
 ## Supported Platforms
 
@@ -34,7 +32,7 @@ How to retrieve a collection from the Ediflo CMS using RemocoKit:
   Remoco.environment.appIdentifier = "appIdentifier_here"
 
   let parameters = RemocoParameters().expand(2).build()
-    Remoco.getCollection(identifier: "my_collection_name", parameters: parameters) { result in
+  Remoco.getCollection(identifier: "my_collection_name", parameters: parameters) { result in
       switch result {
       case .success(let collection):
           // do something with collection
@@ -55,9 +53,12 @@ or
 
   Task {
       do {
-        let collection = try await Remoco.getCollections(identifier: "my_collection_name", parameters: parameters)
+        let parameters = RemocoParameters().expand(2).build()
+        let collection = try await Remoco.getCollection(identifier: "my_collection_name", parameters: parameters)
+        // do something with collection
         print(collection)
       } catch {
+        // handle the error here
         print(error)
       }
   }
