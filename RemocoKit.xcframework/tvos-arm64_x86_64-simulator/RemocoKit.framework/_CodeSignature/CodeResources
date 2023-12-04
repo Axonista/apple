@@ -10,15 +10,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fXDOgfswUMG6ShdX1V8JiNYTCUI=
+		76uM4pqZCTaRz4eJmxIEPUb2+bU=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		vwGyVsZZHE9ELrglzAzYeTp7ubc=
+		dSvG5+Y5S1M/4pg6zYhpBhzFNOE=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		5iS7IaySZUnubzSrjmO20dHigXc=
+		OHZJ1ssneG43dYGWcqzTdgZsGpY=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		5iS7IaySZUnubzSrjmO20dHigXc=
+		OHZJ1ssneG43dYGWcqzTdgZsGpY=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		VtiXuGhxIIDBp+hH0FoAO6SzmqY=
+		QGGAEdjXOsr8MoFpT00TnCuoByo=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		vwGyVsZZHE9ELrglzAzYeTp7ubc=
+		dSvG5+Y5S1M/4pg6zYhpBhzFNOE=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		KDvMOnBA92BVVgCZ+HlwlrzUZRA=
+		30rsxVkG0DRGvvd+nh/Zu2QgIRE=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		KDvMOnBA92BVVgCZ+HlwlrzUZRA=
+		30rsxVkG0DRGvvd+nh/Zu2QgIRE=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		blvQKrefE2jorJG2ZkNP2gqkwP8=
+		RjnLqlktv/b/eoYt360HjsCMXM0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,14 +66,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1yTxloXuGPD4upOBiXFplnuPbr3/Mmyf8AUJIILz+JU=
+			64GqZO/7Qs3xBv40SZk25103oWm4wULa+BV3LMTIg8I=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AR/rz6StcZRyTBo5EafoaH+Iq4iVc62h6DyJnTPVJWQ=
+			64BG7tHAWT3Ni+ZDLaN4Yo8T/HDs4TKvLxL8+OlqCSQ=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
@@ -87,28 +87,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AR/rz6StcZRyTBo5EafoaH+Iq4iVc62h6DyJnTPVJWQ=
+			64BG7tHAWT3Ni+ZDLaN4Yo8T/HDs4TKvLxL8+OlqCSQ=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jY1Xz+9OttCRsk95Jd1LS78K8t7fO15D2aeoSe/DtxM=
+			xCNbpRdORAe3btkT9SF8PpW+0oclMVJyl84EcMRXZ5g=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1yTxloXuGPD4upOBiXFplnuPbr3/Mmyf8AUJIILz+JU=
+			64GqZO/7Qs3xBv40SZk25103oWm4wULa+BV3LMTIg8I=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E29x/joT2IlRa84Vy9JvofZPkXoLyqXLMLx+ioq2XRI=
+			t8yc1eGr9xB80X6qFcjF8ReMW61rptS+tO1Z87zZx3o=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -122,14 +122,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E29x/joT2IlRa84Vy9JvofZPkXoLyqXLMLx+ioq2XRI=
+			t8yc1eGr9xB80X6qFcjF8ReMW61rptS+tO1Z87zZx3o=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4ZbMg+5Cc29x0qXYiGpw3rS49i2BskaMAfhkj84ERXM=
+			/HxW+EWR9/T9b7GqajkqyCHVIhXE3TfzDyOTIROgpFE=
 			</data>
 		</dict>
 	</dict>

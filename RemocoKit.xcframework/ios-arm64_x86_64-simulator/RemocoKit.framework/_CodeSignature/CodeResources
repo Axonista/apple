@@ -10,15 +10,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		87i1TDXUWKo8Yj4P6MvqpTNC4fA=
+		HFAlBVxm7WY2837Toawqm3fuwpg=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		/yL5k46N5hVlTuWlj/BWwpHy6/o=
+		3+EhFyi0IO3h+Myag8aAJPnWjE4=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		4LIUfcqQIA1+O2AkJLbbEvYVmRo=
+		brDT8t+tW3ZPdnvaibtDeePl6wc=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		4LIUfcqQIA1+O2AkJLbbEvYVmRo=
+		brDT8t+tW3ZPdnvaibtDeePl6wc=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jKQofe0ZOq+2rVhA9uZZlum3E+4=
+		FQx1ohzpsxWgefMR5y9inpnqmes=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		/yL5k46N5hVlTuWlj/BWwpHy6/o=
+		3+EhFyi0IO3h+Myag8aAJPnWjE4=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		EdzoVM3q9TYOhcAuScym/l7x90M=
+		gi/tyKMSieWtexAciSByWKpr6aI=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		EdzoVM3q9TYOhcAuScym/l7x90M=
+		gi/tyKMSieWtexAciSByWKpr6aI=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Riqt3O6LRaD0CLBWmJgjWaq3GvQ=
+		84s8hkEOSvMIEs3QGTpnipqx3EY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,14 +66,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c+zJ6k+b7IJI1k6ATdZ97F98mUsZvRZ2TeDVwutGKbg=
+			ltLQ9o/nDFz9/4PtiU39tv3Ics2uDJ9+8Gn2kJt0hGY=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uWEFDStP/vCOKrM3460Aku2fSGHCOb6L16WinQEbOlo=
+			zuY6gXgheAVlqosdYcTWd/FyuA9h3kGOIhIKXh3usrE=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -87,28 +87,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uWEFDStP/vCOKrM3460Aku2fSGHCOb6L16WinQEbOlo=
+			zuY6gXgheAVlqosdYcTWd/FyuA9h3kGOIhIKXh3usrE=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			z3IFX5BoTCHSebxkuIhkQj/Cy5fdnvrnu/HyuYFBp8c=
+			2CVEH1a9zGnyCTUeV1oJghKO+OOViImOhVypuvCXzLk=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c+zJ6k+b7IJI1k6ATdZ97F98mUsZvRZ2TeDVwutGKbg=
+			ltLQ9o/nDFz9/4PtiU39tv3Ics2uDJ9+8Gn2kJt0hGY=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5GBfb2XOtM1zbUtciRGZHR11i3pchGVtL6Ajq8Mo7Fg=
+			nSXNAbE9LuImtiw1n6GAnBSPqkixT09z6TNxOl18L6c=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -122,14 +122,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5GBfb2XOtM1zbUtciRGZHR11i3pchGVtL6Ajq8Mo7Fg=
+			nSXNAbE9LuImtiw1n6GAnBSPqkixT09z6TNxOl18L6c=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			b62ZmbztbwRFBHfJfH4lV2rD+8rpS0ZzY0POVkrt+zI=
+			Dm0OYHy2EDUzz5TTCj21DfjY7QnEUDM5zL7JwenVG1w=
 			</data>
 		</dict>
 	</dict>

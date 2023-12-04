@@ -330,6 +330,7 @@ extension RemocoKit.JSON {
   public var description: Swift.String?
   public var thumbnail: Foundation.URL?
   public var items: [RemocoKit.LibraryItem]?
+  public var shelfStyle: Swift.String?
   public init(from decoder: Swift.Decoder) throws
   public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: RemocoKit.LibraryCollection, b: RemocoKit.LibraryCollection) -> Swift.Bool
