@@ -10,11 +10,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HFAlBVxm7WY2837Toawqm3fuwpg=
+		T+JmThxC4yOC41zIJEa7fSs/Byw=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		3+EhFyi0IO3h+Myag8aAJPnWjE4=
+		noGYmHc7tysaSjmOqkA6vqU9fZY=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		3+EhFyi0IO3h+Myag8aAJPnWjE4=
+		noGYmHc7tysaSjmOqkA6vqU9fZY=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -66,7 +66,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ltLQ9o/nDFz9/4PtiU39tv3Ics2uDJ9+8Gn2kJt0hGY=
+			MX7hokkDKDWXvLAzS3r6ZT4/uU+iUHzCfATga6dSpoU=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -101,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ltLQ9o/nDFz9/4PtiU39tv3Ics2uDJ9+8Gn2kJt0hGY=
+			MX7hokkDKDWXvLAzS3r6ZT4/uU+iUHzCfATga6dSpoU=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
