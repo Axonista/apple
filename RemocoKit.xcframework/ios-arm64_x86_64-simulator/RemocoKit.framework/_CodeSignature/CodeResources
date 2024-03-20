@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		noGYmHc7tysaSjmOqkA6vqU9fZY=
+		DGG+nAryTaHyYK4zIMA7Lu3rZ14=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		brDT8t+tW3ZPdnvaibtDeePl6wc=
+		Zc2aLIHVa/XFb5QG7V9pFkdkIBI=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+C2lI+5xpDEKcz/4yzsNOZLZtq8=
+		2wYAop28fm8HXoLOFwyB1N0VcEE=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		brDT8t+tW3ZPdnvaibtDeePl6wc=
+		Zc2aLIHVa/XFb5QG7V9pFkdkIBI=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		FQx1ohzpsxWgefMR5y9inpnqmes=
+		WBqLv1dgAInhtLGHznTHwgPhd5c=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		noGYmHc7tysaSjmOqkA6vqU9fZY=
+		DGG+nAryTaHyYK4zIMA7Lu3rZ14=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		gi/tyKMSieWtexAciSByWKpr6aI=
+		eP7VXPuCH8zmUwsflLBhSFN+ad0=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		jqObh08bLVCZqmhVlbfjjABoglk=
+		sqY2MuUSLBBxa7Nr8AemBMtIci4=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		gi/tyKMSieWtexAciSByWKpr6aI=
+		eP7VXPuCH8zmUwsflLBhSFN+ad0=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		84s8hkEOSvMIEs3QGTpnipqx3EY=
+		RTPRS30q9pg0s3x5k65Cm1QvvNI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,70 +66,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MX7hokkDKDWXvLAzS3r6ZT4/uU+iUHzCfATga6dSpoU=
+			YnDZLp2b2V5lMdo7qpsVeB50aJn1ze3vWCCQPZhOIc4=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zuY6gXgheAVlqosdYcTWd/FyuA9h3kGOIhIKXh3usrE=
+			aPxL/lMEmmKOydtCm7H55mhb2EFEM+sLvatupGlC7qc=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SkVoTOGOfkmLHbqyS0egB5POvho5id72vr/7EWBHyvQ=
+			JeRr4loYQN7ShcxhsqxCxLJwhqz3slzy6BdmpEPopUg=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zuY6gXgheAVlqosdYcTWd/FyuA9h3kGOIhIKXh3usrE=
+			aPxL/lMEmmKOydtCm7H55mhb2EFEM+sLvatupGlC7qc=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2CVEH1a9zGnyCTUeV1oJghKO+OOViImOhVypuvCXzLk=
+			+pKFQF55znkRP1+4QAJgxpxHcrJY/VdpRQdQeYh6skc=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MX7hokkDKDWXvLAzS3r6ZT4/uU+iUHzCfATga6dSpoU=
+			YnDZLp2b2V5lMdo7qpsVeB50aJn1ze3vWCCQPZhOIc4=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nSXNAbE9LuImtiw1n6GAnBSPqkixT09z6TNxOl18L6c=
+			IXGXXfx1bXetiLY0XeJX+8Mv4jrVQoachf0S1aNeDtY=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q/8nY3mrfSRNHW3SuHTcQcdwEj5rd2gu/JucmhxnL9U=
+			NKHR3I5yN8bLdWOUiP44ty57EFcOBa7BsiOpWmnTxME=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nSXNAbE9LuImtiw1n6GAnBSPqkixT09z6TNxOl18L6c=
+			IXGXXfx1bXetiLY0XeJX+8Mv4jrVQoachf0S1aNeDtY=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Dm0OYHy2EDUzz5TTCj21DfjY7QnEUDM5zL7JwenVG1w=
+			RPqwlg+lKW4A+WYBevNJnV3yR0W36KWn+9XHOUATkIM=
 			</data>
 		</dict>
 	</dict>

@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		pYmUOtd4tLnqTI81mc9yTuFNLnQ=
+		FBi6qNCdAW1X7idU5MvohrG/zKM=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		OHZJ1ssneG43dYGWcqzTdgZsGpY=
+		9PO5KlAAfZbl8tHrG2BG1XZrHxU=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		CMnyzUI+A9qKDcSFFzsEqo1NAAg=
+		3QdSVbqyL4xlq6k3b4W+F1FYkEw=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		OHZJ1ssneG43dYGWcqzTdgZsGpY=
+		9PO5KlAAfZbl8tHrG2BG1XZrHxU=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		QGGAEdjXOsr8MoFpT00TnCuoByo=
+		wI7t8twNMKyCZKHhi5jBOJLdhFg=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		pYmUOtd4tLnqTI81mc9yTuFNLnQ=
+		FBi6qNCdAW1X7idU5MvohrG/zKM=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		30rsxVkG0DRGvvd+nh/Zu2QgIRE=
+		nmDYfsMnEvQLFuS9nmJle9YNXaA=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		orNrm3UAy9PHKT9J7KgQe4VySiE=
+		tisdzPs1wBBk14abkkLXAQrB7/w=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		30rsxVkG0DRGvvd+nh/Zu2QgIRE=
+		nmDYfsMnEvQLFuS9nmJle9YNXaA=
 		</data>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		RjnLqlktv/b/eoYt360HjsCMXM0=
+		3ICRQGjTQ0/ao96GhqHKN1jmC00=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -66,70 +66,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jnkhh2XBUVTxt8oI5p71tRcRrEvBo6eZMnSU4VdpcUs=
+			OsABJ6F25JRDVI/CWlwa/fO7WeJ5Dnvr/YvWGgFAJVo=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			64BG7tHAWT3Ni+ZDLaN4Yo8T/HDs4TKvLxL8+OlqCSQ=
+			D+Mc3Xha2mNQCCvKwwNgjDm2GYY9cPcDjdv9FYFf+hc=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			vHC3ux/4vdiiUS4TnW4jeoMJUc3+noquXAmwHcoINWY=
+			CNRM8A+zIN1FrelNhdcbzruBOMZPVrWeb5aoxCWIWPI=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			64BG7tHAWT3Ni+ZDLaN4Yo8T/HDs4TKvLxL8+OlqCSQ=
+			D+Mc3Xha2mNQCCvKwwNgjDm2GYY9cPcDjdv9FYFf+hc=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xCNbpRdORAe3btkT9SF8PpW+0oclMVJyl84EcMRXZ5g=
+			a4zLuhx/+g87vaEzsUlap1AXDSxHsWU8c4XsjAuKXQI=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jnkhh2XBUVTxt8oI5p71tRcRrEvBo6eZMnSU4VdpcUs=
+			OsABJ6F25JRDVI/CWlwa/fO7WeJ5Dnvr/YvWGgFAJVo=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			t8yc1eGr9xB80X6qFcjF8ReMW61rptS+tO1Z87zZx3o=
+			vH6sEzmM5O8JpECDI5FlbEN7w15xhGxjfO7xIEGFp3s=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aqvs4mg2dSSW4Ysu090qo31wtjowJ4QGb1nOpSvYNl0=
+			I3B7s/hGLNJfQnCMiEJl1ukE2XNGHkJ/PWPhWYbH2ZY=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			t8yc1eGr9xB80X6qFcjF8ReMW61rptS+tO1Z87zZx3o=
+			vH6sEzmM5O8JpECDI5FlbEN7w15xhGxjfO7xIEGFp3s=
 			</data>
 		</dict>
 		<key>Modules/RemocoKit.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/HxW+EWR9/T9b7GqajkqyCHVIhXE3TfzDyOTIROgpFE=
+			+T7nl0f7jg2OzkmLegnk4o6+ou/hO3BS749gz8SrQSc=
 			</data>
 		</dict>
 	</dict>

@@ -547,6 +547,22 @@ extension RemocoKit.LibraryItem : Swift.Codable, Swift.Hashable {
     get
   }
 }
+@frozen public struct LibraryResource : Swift.Codable, Swift.Hashable {
+  public let id: Swift.String
+  public var type: Swift.String?
+  public var resourceType: Swift.String?
+  public var parentCollection: Swift.String?
+  public var name: Swift.String?
+  public var label: Swift.String?
+  public var value: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RemocoKit.LibraryResource, b: RemocoKit.LibraryResource) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 @frozen public struct LibrarySeries : Swift.Codable, Swift.Hashable {
   public var id: Swift.String
   public var type: Swift.String
@@ -728,6 +744,11 @@ extension RemocoKit.LibraryTrigger {
 }
 @frozen public struct ListProfiles : Swift.Codable {
   public var items: [RemocoKit.LibraryProfile]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@frozen public struct ListResources : Swift.Codable {
+  public var items: [RemocoKit.LibraryResource]?
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -968,6 +989,16 @@ public let Remoco: RemocoKit.RemocoHttp
   public func session(event: RemocoKit.LibraryEvent, player: AVFoundation.AVPlayer) -> RemocoKit.RemocoSessionVOD
   @available(*, deprecated, message: "Use EdifloSessionLive instead")
   public func session(event: RemocoKit.LibraryEvent, historyLimit: Swift.Int) -> RemocoKit.RemocoSessionLive
+  public func getAppResources(interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.ListResources, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getAppResource(interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.ListResources
+  #endif
+  public func getAppResource(identifier: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil, completion: @escaping (Swift.Result<RemocoKit.LibraryResource, RemocoKit.RemocoError>) -> Swift.Void)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, tvOS 13.0, *)
+  public func getAppResource(identifier: Swift.String, interceptor: RemocoKit.RequestInterceptor? = nil) async throws -> RemocoKit.LibraryResource
+  #endif
   @objc deinit
 }
 public class RemocoParameters {
@@ -1106,6 +1137,7 @@ extension RemocoKit.Resource : Swift.Sendable {}
 extension RemocoKit.Source : Swift.Sendable {}
 extension RemocoKit.Time : Swift.Sendable {}
 extension RemocoKit.LibraryProfile : Swift.Sendable {}
+extension RemocoKit.LibraryResource : Swift.Sendable {}
 extension RemocoKit.LibrarySlot : Swift.Sendable {}
 extension RemocoKit.LibraryUpdate : Swift.Sendable {}
 extension RemocoKit.LibraryUser : Swift.Sendable {}
@@ -1114,6 +1146,7 @@ extension RemocoKit.Target : Swift.Sendable {}
 extension RemocoKit.LibraryEventV3 : Swift.Sendable {}
 extension RemocoKit.LibraryTriggerV3 : Swift.Sendable {}
 extension RemocoKit.ListProfiles : Swift.Sendable {}
+extension RemocoKit.ListResources : Swift.Sendable {}
 extension RemocoKit.ListEventsV3 : Swift.Sendable {}
 extension RemocoKit.UserCollection : Swift.Sendable {}
 extension RemocoKit.UserProfile : Swift.Sendable {}
